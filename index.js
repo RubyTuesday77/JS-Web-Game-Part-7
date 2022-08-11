@@ -4,8 +4,33 @@ const pc = newPlayableCharacter(100, 110)
 // Create a non-playable character
 const npc = newNonPlayableCharacter(50, 300)
 
-// have the NPC start walking east immediately
-npc.walkEast()
+
+/* Comment out invoked walkEast function to be replaced by code from Step 4.
+// Step 3: Invoke walkEast function and pass 2000 as argument.
+npc.walkEast(2000)
+*/
+
+/* Comment out walkEast code, to be replaced with new code from Step 6.
+// Step 4: Replaced npc.walkEast(2000) with below code,
+async function moveNPC() {
+    await npc.walkEast(2000);
+    npc.walkSouth();
+}
+moveNPC()
+*/
+
+// Step 6: Implement a path
+async function moveNPC() {
+    await npc.walkNorth(1400)
+    await npc.walkEast(1200) 
+    await npc.walkSouth(300)
+    await npc.walkEast(1500)
+    await npc.walkSouth(1500)
+    await npc.walkWest(2700)
+    await npc.walkNorth(400) 
+}
+
+moveNPC()
 
 // Create the inventory
 const inventory = newInventory()
